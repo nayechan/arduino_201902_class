@@ -11,7 +11,7 @@ void loop() {
   char read_data;
   if(Serial.available())
   {
-    read_data = Serial.read();
+    read_data = Serial.read()+1;
     Serial.print(read_data);
   }
   delay(10);
