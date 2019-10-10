@@ -9,10 +9,14 @@ void setup() {
 
 void customAnalogWrite(int led, int amount)
 {
-  digitalWrite(led,HIGH);
-  delayMicroseconds(amount);
-  digitalWrite(led,LOW);
-  delayMicroseconds(256-amount);
+  if(amount>0)
+  {
+    digitalWrite(led,HIGH);
+    delayMicroseconds(amount);
+    digitalWrite(led,LOW);
+    delayMicroseconds(256-amount);
+  }
+  
 }
 
 void loop() {
@@ -21,5 +25,4 @@ void loop() {
   calcValue = rawValue/4;
   
   customAnalogWrite(led, calcValue);
-  delay(1);
 }
